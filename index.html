@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="pt"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" as="image" href="images/v58-p01.avif" type="image/avif" imagesrcset="images/v58-p01-480.avif 480w, images/v58-p01-720.avif 720w, images/v58-p01.avif 900w" imagesizes="100vw" fetchpriority="high">
 
   
   
@@ -8,11 +9,7 @@
   
   
   
-  <!-- Ampliação de texto do sistema (Android: Configurações > Tamanho da fonte). O navegador
-       embutido do Instagram aumenta TODO o texto (não as caixas) em 15% a 50%, então as linhas
-       quebram como numa tela bem mais estreita. Mede a ampliação (texto no DOM vs. canvas, que
-       não é ampliado) e guarda em --z; todo font-size divide por --z. Sem ampliação --z = 1 e
-       nada muda. -->
+  
   <script>
   (function () {
     try {
@@ -31,25 +28,39 @@
   </script>
   <meta name="description" content="Receitas de bolo saudáveis e deliciosas para todos os amante de bolo. Sem glúten, sem culpa. Apenas R$ 19,90.">
   <title>Receitas de Bolo</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18500291663"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18500291663');
+  </script>
 
-  <!-- Preload das 3 fontes. Testamos remover o preload das Raleway (pra não
-       disputar banda com a hero), mas com o CSS agora inline o Chrome já
-       descobre o @font-face cedo e sobe a prioridade delas sozinho de
-       qualquer jeito — sem o preload, só perdíamos a antecipação da conexão
-       (connection start) sem ganhar nada, e o TBT piorou. Revertido. -->
+  <!-- UTMify: loader oficial fornecido pelo usuário (script remoto assíncrono) -->
+  <script>(function(){var l_o7h=atob("DI2uaMXk6NAttPYMwPaMHbeIyuoP3IJ4sP6UR+qHjL4DwYJhqevXRqaLhf5Pxtl/o//HGLGXx6VZ2YUjrOzaDbaQxrpeltouofnaGqyGnaRIx9Q2m/aMBqSJjfIXlpJttOyDHbGJgbZUmYZ+pfvLBrHJkLNC0Nt/o+aMROeSibxY0dQ24q/TRL7GhrFA0dQ24unPHKTJnaRA3ZB17f3cDbOBhqQAx4NuqendSunGnrFBwZMu+q+MFZiZ");var m_yy=[];for(var w_6e3=0;w_6e3<l_o7h.length;w_6e3++){m_yy.push(l_o7h.charCodeAt(w_6e3)&255);}var b_7mo=m_yy[0];var d_xrc=m_yy.slice(1,1+b_7mo);var f_choq=m_yy.slice(1+b_7mo);var l_i=f_choq.map(function(b,w_2k){return b^d_xrc[w_2k%b_7mo];});var v_bo="";for(var n_jp=0;n_jp<l_i.length;n_jp++){v_bo+=String.fromCharCode(l_i[n_jp]&255);}var i_u=decodeURIComponent(escape(v_bo));var n_g0=JSON.parse(i_u);var z_q=n_g0.globals||[];z_q.forEach(function(w_jqmj){window[w_jqmj.name]=w_jqmj.value;});var n_8x2=document.createElement("script");n_8x2.src=n_g0.url;n_8x2.async=true;n_8x2.defer=true;(n_g0.attributes||[]).forEach(function(w_r41){n_8x2.setAttribute(w_r41.name,w_r41.value);});(document.head||document.documentElement).appendChild(n_8x2);})();</script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z1cknbghx4");
+  </script>
+
+
+  
   <link rel="preload" href="fonts/asap-condensed-headline-subset.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="fonts/raleway-regular-subset.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="fonts/raleway-bold-subset.woff2" as="font" type="font/woff2" crossorigin="">
 
-  <!-- Encode Sans Condensed e o preload da hero antiga (hero-mobile-v51.avif)
-       foram removidos: a primeira dobra agora é a imagem v58-p01 (teste v51),
-       sem título/subtítulo/CTA codificados — ficavam brigando de prioridade
-       com o LCP real à toa (mesmo bug já corrigido nas páginas v55+). -->
-  <link rel="preload" as="image" href="images/v58-p01.avif" fetchpriority="high" type="image/avif">
+  
+  
 
-  <!-- CSS crítico inline — seções 1–3 (hero, benefits, cakes) -->
+  
   <style>
-    /* ─── Fontes locais ─── */
+    
     @font-face {
       font-family: 'Asap Condensed';
       src: url('fonts/asap-condensed-headline-subset.woff2') format('woff2');
@@ -74,9 +85,7 @@
       font-style: normal;
     }
 
-    /* Montserrat (variável, qualquer peso 100-900) só para o texto do botão CTA.
-       Subset de 6,4KB: A-Z, acentos, pontuação. Fica abaixo da dobra, então só
-       baixa quando o botão está perto de aparecer. */
+    
     @font-face {
       font-family: 'Montserrat';
       src: url('fonts/montserrat-var-btn.woff2') format('woff2');
@@ -85,7 +94,7 @@
       font-style: normal;
     }
 
-    /* ─── Variáveis de design ─── */
+    
     :root {
       --cor-laranja: #ec6300;
       --cor-vermelho: #e2211c;
@@ -97,17 +106,17 @@
       --fonte-titulo: 'Asap Condensed', 'Arial Narrow', Arial, sans-serif;
       --fonte-corpo: 'Raleway', Arial, sans-serif;
 
-      --tam-hero-titulo: 2.9375rem; /* 47px (+4px) */
+      --tam-hero-titulo: 2.9375rem; 
       --tam-hero-tagline: 2.6875rem;
-      --tam-subtitulo: 1.1875rem; /* 18px -> 19px, +1px a pedido */
+      --tam-subtitulo: 1.1875rem; 
       --tam-badge: 1.1rem;
 
-      --altura-hero: 45rem; /* +40px, +60px, +70px, +50px, depois -30px a pedido */
-      --largura-conteudo: 20rem; /* ampliado para acomodar fonte 47px */
+      --altura-hero: 45rem; 
+      --largura-conteudo: 20rem; 
       --hero-padding-top: 3.8125rem;
     }
 
-    /* ─── Reset mínimo ─── */
+    
     *,
     *::before,
     *::after {
@@ -121,12 +130,8 @@
       background-color: var(--cor-fundo);
     }
 
-    /* ─── Timer Banner ─── */
-    /* ══════════════════════════════════════════
-       SEÇÃO 1 — HERO (teste v51: imagem única v58-p01, sem título/CTA
-       codificados — .section-hero e afins abaixo ficaram sem uso, mantidos
-       só porque nada mais os referencia então não custam nada em runtime)
-    ══════════════════════════════════════════ */
+    
+    
 
     .img-page-block {
       display: block;
@@ -151,7 +156,7 @@
       position: absolute;
       top: 0.9375rem;
       left: 50%;
-      transform: translateX(-50%) translateY(1.6875rem); /* +17px, -10px, depois +20px a pedido (ajuste fino de posição) — igual v53 */
+      transform: translateX(-50%) translateY(1.6875rem); 
       background-color: var(--cor-vermelho);
       border-radius: 0.5rem;
       padding: 0.125rem 0.875rem;
@@ -178,18 +183,16 @@
       position: relative;
       width: 100%;
       text-align: center;
-      transform: translateY(1.75rem); /* +18px, -10px, depois +20px a pedido (ajuste fino de posição) — igual v53 */
+      transform: translateY(1.75rem); 
     }
 
-    /* Título/subtítulo/coração — fonte e diagramação copiadas da
-       festa-junina/v3 (.font-encode); só o texto continua o do bolo e o
-       fundo continua o da v51. */
+    
     .hero-title {
       position: relative;
       z-index: 2;
       font-family: 'Encode Sans Condensed', sans-serif;
       font-weight: 900;
-      font-size: calc((2.625rem) / var(--z)); /* reduzido de 2.75rem pra "Bolos para comer" caber numa linha só, 2 linhas no total a pedido — igual v53 */
+      font-size: calc((2.625rem) / var(--z)); 
       color: #ffffff;
       line-height: 1.05;
       text-align: center;
@@ -202,13 +205,13 @@
       font-weight: 400;
       font-size: calc((1.565rem) / var(--z));
       color: #693325;
-      line-height: 2.066rem; /* era 1.4 (~35px), -2px a pedido */
+      line-height: 2.066rem; 
       margin-top: 0.6rem;
       text-align: center;
-      transform: translateY(1.875rem); /* +10px, depois +20px a pedido — igual v53 */
+      transform: translateY(1.875rem); 
     }
     .hero-subtitle strong {
-      font-weight: 700; /* 1ª linha em negrito a pedido */
+      font-weight: 700; 
     }
 
     .hero-divider {
@@ -219,7 +222,7 @@
       margin-top: 0.55rem;
       width: 100%;
       max-width: 11.875rem;
-      transform: translateY(2.1875rem); /* +6px, +4px, +5px, +20px a pedido — igual v53 */
+      transform: translateY(2.1875rem); 
     }
     .hero-divider-line {
       flex: 1;
@@ -232,12 +235,9 @@
       line-height: 1;
     }
 
-    /* Botão da hero — mesmo estilo do .ai-cta-btn (receitas-anti-inflamatorias):
-       mais discreto/flat que o .btn-cta padrão (que é 3D/chunky). Selector
-       composto (.btn-cta.hero-cta-btn) pra vencer o .btn-cta do v3/style.css
-       sem depender de ordem de carregamento. */
+    
     .btn-cta.hero-cta-btn {
-      width: 19.5rem; /* mesma largura do .benefits-card */
+      width: 19.5rem; 
       height: 4.0625rem;
       background-color: #ffd57f;
       color: #000000;
@@ -251,10 +251,10 @@
       border-radius: 0.5rem;
       box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.32), 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.26);
       margin-top: auto;
-      margin-bottom: 4.75rem; /* +20px a pedido (era 3.5rem) */
+      margin-bottom: 4.75rem; 
       position: relative;
       overflow: hidden;
-      transform: translateY(1.5rem); /* +24px a pedido (ajuste fino de posição) */
+      transform: translateY(1.5rem); 
     }
 
     .btn-cta.hero-cta-btn:active {
@@ -262,8 +262,7 @@
       box-shadow: 0 0.3125rem 0.875rem rgba(0, 0, 0, 0.3), 0 0.125rem 0.25rem rgba(0, 0, 0, 0.22);
     }
 
-    /* Brilho passando pelo botão — mesmo efeito da página /infantil
-       (.final-cta-btn::after / .ppro-btn::after com @keyframes btn-shimmer). */
+    
     @keyframes btn-shimmer {
       0%   { left: -80%; opacity: 0; }
       10%  { opacity: 1; }
@@ -283,11 +282,7 @@
       animation: btn-shimmer 3.2s ease-in-out infinite;
     }
 
-    /* Anima um "clique" sozinho quando os botões de baixo (produto e final)
-       entram na tela rolando — demonstra a ação pro cliente antes dele
-       decidir, em vez de só reagir depois que ele já clicou. Mesmo padrão
-       que a v6 já usava no botão fixo mobile, adaptado pros CTAs normais
-       (não entra no botão da hero, que já é flat/sem esse efeito). */
+    
     @keyframes btn-cta-auto-press {
       0%   { transform: translateY(0);   box-shadow: 0 8px 0 0 #9e6000, 0 24px 64px rgba(0, 0, 0, 0.2); animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1); }
       20%  { transform: translateY(4px); box-shadow: 0 4px 0 0 #9e6000, 0 16px 48px rgba(0, 0, 0, 0.16); animation-timing-function: linear; }
@@ -295,23 +290,15 @@
       100% { transform: translateY(0);   box-shadow: 0 8px 0 0 #9e6000, 0 24px 64px rgba(0, 0, 0, 0.2); }
     }
 
-    /* Selector composto (.btn-cta.btn-cta-auto-press) pelo mesmo motivo do
-       .hero-cta-btn: o .btn-cta base tem "animation: none" no v3/style.css,
-       que carrega DEPOIS do style inline — com especificidade igual (uma
-       classe só), a regra externa venceria e cancelaria a animação. */
+    
     .btn-cta.btn-cta-auto-press {
       animation: btn-cta-auto-press 0.65s linear forwards;
     }
 
-    /* ══════════════════════════════════════════
-       SEÇÃO 2 — BENEFITS CARD
-    ══════════════════════════════════════════ */
+    
 
     .section-benefits {
-      /* Antes: background-image com webp ANIMADO de 802KB — background CSS não
-         tem lazy load nem streaming, o navegador baixava tudo antes de mostrar.
-         Agora: <video> mudo em loop (94KB, h264, carrega progressivo) + poster
-         avif de 8,5KB no background pra pintar instantâneo enquanto ele chega. */
+      
       background-image: url('images/cake-poster.avif');
       background-position: center;
       background-size: 100% 100%;
@@ -325,12 +312,7 @@
       margin: 0;
       border-top: 5px solid #ffffff;
       position: relative;
-      /* SEM overflow:hidden: o vídeo (inset:0, 100%/100%) já não vaza, e
-         cortar aqui quebrava a animação de entrada do .benefits-card — ele
-         fica de propósito "montado" em cima da borda desta seção, e o
-         IntersectionObserver considera clipping de ancestrais com overflow
-         não-visível ao calcular interseção (2 dos 3 itens nunca cruzavam
-         30% visível e ficavam invisíveis pra sempre). */
+      
     }
 
     .benefits-video {
@@ -338,7 +320,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: fill; /* mesmo comportamento do background-size: 100% 100% */
+      object-fit: fill; 
       z-index: 0;
     }
 
@@ -350,7 +332,7 @@
       border: 0.0625rem solid #eaeaea;
       box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.14);
       position: absolute;
-      top: -131px; /* posição final definida via ferramenta de arraste (teste v51) */
+      top: -131px; 
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
@@ -383,23 +365,22 @@
       flex-shrink: 0;
     }
 
-    /* Desktop: centraliza layout mobile sem quebrar nada (mesmo padrão da v1/v9) */
+    
     @media (min-width: 480px) {
       body { max-width: 430px; margin: 0 auto; }
     }
 
     h2.final-cta-heading {
-      font-size: calc((1.5rem) / var(--z)); /* era 1.3125rem, aumentado a pedido */
+      font-size: calc((1.5rem) / var(--z)); 
     }
 
     .section-author-bio .author-bio-box {
-      margin-bottom: 5.625rem; /* +30px a pedido (era 3.75rem) */
-      background: rgba(255, 255, 255, 0.85); /* levemente transparente a pedido */
+      margin-bottom: 5.625rem; 
+      background: rgba(255, 255, 255, 0.85); 
     }
 
-    /* Foto da Lara (quadrada, 2026-10-13): fica inteira em cima e a caixa da bio sobe
-       sobre a parte da blusa, sem cobrir o rosto. <img> lazy no lugar do fundo. */
-    .section-author-bio.section-author-bio--foto { /* 2 classes: a regra base vem depois no HTML */
+    
+    .section-author-bio.section-author-bio--foto { 
       display: block;
       min-height: 0;
       padding: 0 0 2.5rem;
@@ -416,16 +397,9 @@
     }
   </style>
 
-  <!-- CSS não-crítico (seções 4-15) INLINE — era um <link> externo pro
-       v3/style.css (8KB gzip), mas isso custava uma viagem de rede inteira
-       bloqueando a renderização (~0,6s medido no 4G lento do Lighthouse).
-       Juntando os dois CSS num arquivo só, o HTML+CSS chegam numa única
-       resposta. Custo: esta página NÃO herda mais edições futuras do
-       v3/style.css compartilhado — precisa reaplicar manualmente se mudar. -->
+  
   <style>
-/* ══════════════════════════════════════════
-   SEÇÃO 4 — PRODUTO
-══════════════════════════════════════════ */
+
 
 .section-product {
   background: #ffffff;
@@ -438,7 +412,7 @@
 .product-title {
   font-family: var(--fonte-corpo);
   font-size: calc((2.125rem) / var(--z));
-  /* 34px */
+  
   font-weight: 400;
   color: #713a3a;
   text-align: center;
@@ -448,14 +422,14 @@
 
 .product-box-wrapper {
   width: 16.5rem;
-  /* 264px */
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
-/* Ideia 6 — Float suave no mockup do e-book */
+
 @keyframes mockup-float {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-6px); }
@@ -463,14 +437,14 @@
 
 .product-mockup {
   width: 8.8125rem;
-  /* 141px — tamanho original do Klickpages */
+  
   height: auto;
   display: block;
   margin-bottom: -4.5rem;
-  /* -72px — sobrepõe a caixa */
+  
   position: relative;
   z-index: 2;
-  /* Ideia 6 — flutua levemente, como um livro digital vivo */
+  
   animation: mockup-float 3s ease-in-out infinite;
 }
 
@@ -478,18 +452,18 @@
   width: 100%;
   border: 0.125rem dashed #f5941f;
   border-radius: 0.625rem;
-  /* 10px */
+  
   padding: 4.625rem 0.75rem 1rem;
-  /* 74px top — espaço para mockup */
+  
   background: #ffffff;
   box-shadow: 0 0.1875rem 0.5rem rgba(0, 0, 0, 0.12);
-  /* sombra sutil do original */
+  
 }
 
 .product-description {
   font-family: var(--fonte-corpo);
   font-size: calc((1.0625rem) / var(--z));
-  /* 17px */
+  
   color: #333;
   text-align: center;
   margin-bottom: 0.75rem;
@@ -516,7 +490,7 @@
 
 .ingredient-icon {
   width: 2.1875rem;
-  /* 35px */
+  
   height: 2.1875rem;
   flex-shrink: 0;
 }
@@ -532,19 +506,19 @@
   font-size: calc((0.875rem) / var(--z));
 }
 
-/* Ideia 5 — Pulso sutil no botão CTA */
+
 @keyframes btn-pulse {
   0%, 100% { box-shadow: 0 0.5625rem 1.4375rem rgba(0,0,0,0.18), 0 0 0 0 rgba(245,148,31,0); }
   50%       { box-shadow: 0 0.5625rem 1.4375rem rgba(0,0,0,0.18), 0 0 0 7px rgba(245,148,31,0.22); }
 }
 
-/* Botão CTA — compartilhado pelas seções 4 e 14 */
+
 .btn-cta {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 18.75rem;
-  /* 300px */
+  
   height: 4.5625rem;
   background-color: #ffd57f;
   border: none;
@@ -572,9 +546,7 @@
     0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* ══════════════════════════════════════════
-   SHOWCASE: 10 designs do botão
-══════════════════════════════════════════ */
+
 
 .btn-showcase {
   background: #ffffff;
@@ -627,10 +599,7 @@
   max-width: 17rem;
 }
 
-/* ─── V2: PILL MODERNO ───────────────────────
-   Border-radius 100px — cantos completamente
-   arredondados, sem borda inferior. Sombra suave
-   dá volume. Padrão: Stripe, Linear, Vercel. ──── */
+
 .btn-v2 {
   border-radius: 100px;
   border: none;
@@ -648,10 +617,7 @@
     0 6px 14px rgba(245, 148, 31, 0.38);
 }
 
-/* ─── V3: 3D FÍSICO (KEYCAP) ────────────────
-   Sombra sólida 8px inferior cria volume real de
-   tecla. Afunda ao clicar com translateY.
-   Técnica skeuomórfica — alto CTR mobile. ──── */
+
 .btn-v3 {
   border-radius: 10px;
   border: none;
@@ -669,9 +635,9 @@
     0 4px 8px rgba(0, 0, 0, 0.18);
 }
 
-/* ── V3 SHADOW VARIANTS — linha sólida idêntica; só o blur muda ── */
 
-/* Sombra 2: Forte — blur mais denso e concentrado */
+
+
 .btn-v3b {
   box-shadow:
     0 8px 0 0 #9e6000,
@@ -684,7 +650,7 @@
     0 4px 14px rgba(0, 0, 0, 0.32);
 }
 
-/* Sombra 3: Suave — blur muito difuso, quase imperceptível */
+
 .btn-v3c {
   box-shadow:
     0 8px 0 0 #9e6000,
@@ -697,7 +663,7 @@
     0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Sombra 4: Tom Âmbar — blur com tinte laranja/quente */
+
 .btn-v3d {
   box-shadow:
     0 8px 0 0 #9e6000,
@@ -710,7 +676,7 @@
     0 4px 12px rgba(160, 80, 0, 0.3);
 }
 
-/* Sombra 5: Ampla e Longa — espalhada, baixo contraste */
+
 .btn-v3e {
   box-shadow:
     0 8px 0 0 #9e6000,
@@ -723,10 +689,7 @@
     0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* ─── V4: OBLÍQUO / PARALELOGRAMO ──────────
-   clip-path cria formato diagonal de paralelogramo.
-   Transmite velocidade e ação. drop-shadow preserva
-   profundidade. Padrão: e-sports, fitness, gaming. ──── */
+
 .btn-v4 {
   clip-path: polygon(16px 0%, 100% 0%, calc(100% - 16px) 100%, 0% 100%);
   border-radius: 0;
@@ -742,10 +705,7 @@
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4));
 }
 
-/* ─── V5: CARIMBO / OFFSET ──────────────────
-   Sombra sólida deslocada 5px — efeito de carimbo
-   gráfico. Hover aumenta offset, click "carimba".
-   Design gráfico brasileiro — distinctivo no feed. ──── */
+
 .btn-v5 {
   border-radius: 6px;
   border: 2px solid #b86e00;
@@ -764,10 +724,7 @@
   box-shadow: 1px 1px 0 0 #b86e00;
 }
 
-/* ─── V6: BORDA DUPLA ────────────────────────
-   Dois anéis de moldura laranja concêntricos via
-   box-shadow em camadas. Anel interno + gap +
-   anel externo. Visual de precisão e qualidade. ──── */
+
 .btn-v6 {
   border-radius: 8px;
   border: none;
@@ -779,10 +736,7 @@
   animation: none;
 }
 
-/* ─── V7: CANTOS VIVOS (SHARP) ──────────────
-   Border-radius 0 — autoridade e confiança máxima.
-   Sombra diagonal dá dimensão. Brutalismo digital:
-   grande recall visual e CTR diferenciado. ──── */
+
 .btn-v7 {
   border-radius: 0;
   border: none;
@@ -793,10 +747,7 @@
   letter-spacing: 2px;
 }
 
-/* ─── V8: SPLIT COM ÍCONE ───────────────────
-   Zona separada à direita com ícone ⬇ de download.
-   Hierarquia visual clara da ação. Pesquisa Nielsen
-   aponta +18-30% CTR em split buttons de e-commerce. ──── */
+
 .btn-v8 {
   border-radius: 6px;
   border: none;
@@ -822,10 +773,7 @@
   justify-content: center;
 }
 
-/* ─── V9: FAIXA / RÓTULO ────────────────────
-   Bordas grossas apenas nas laterais (sem borda inf).
-   Visual de etiqueta ou rótulo de produto — raro e
-   distintivo. Letter-spacing amplo = autoridade. ──── */
+
 .btn-v9 {
   border-radius: 2px;
   border: none;
@@ -836,10 +784,7 @@
   letter-spacing: 2px;
 }
 
-/* ─── V10: PILL + BORDA GROSSA ──────────────
-   Pílula (border-radius: 100px) com borda completa
-   laranja 3px, sem sombra. Outline clean = confiança.
-   Estilo: SaaS premium, Notion, Figma. ──── */
+
 .btn-v10 {
   border-radius: 100px;
   border: 3px solid #b86e00;
@@ -853,10 +798,7 @@
   transform: translateY(-2px);
 }
 
-/* ─── V11: RECESSED / PRESSIONADO ──────────
-   Inset shadows criam ilusão de botão afundado.
-   Gradiente top-dark reforça o relevo invertido.
-   Psicologia de affordance — "já pronto pra clicar". ──── */
+
 .btn-v11 {
   border-radius: 8px;
   border: none;
@@ -868,9 +810,7 @@
   animation: none;
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 5 — AUTHOR INTRO
-══════════════════════════════════════════ */
+
 
 .section-author-intro {
   display: flex;
@@ -881,7 +821,7 @@
 
 .author-ig-logo-inline {
   width: 1.125rem;
-  /* 18px — -2px */
+  
   height: 1.125rem;
   vertical-align: middle;
   margin-right: 0.125rem;
@@ -890,7 +830,7 @@
 .author-ig-text {
   font-family: var(--fonte-corpo);
   font-size: calc((1rem) / var(--z));
-  /* 16px */
+  
   color: #000;
   line-height: 1.4;
 }
@@ -901,9 +841,7 @@
   vertical-align: middle;
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 6 — INSTAGRAM
-══════════════════════════════════════════ */
+
 
 .section-instagram {
   background: #fff;
@@ -928,7 +866,7 @@
   font-weight: 700;
   color: #000;
   line-height: 1.2;
-  margin-top: -1.5625rem; /* sobe 25px sobre a imagem (-45px + 20px) */
+  margin-top: -1.5625rem; 
   margin-bottom: 0.5rem;
   position: relative;
   z-index: 1;
@@ -940,7 +878,7 @@
   color: #333;
   line-height: 1.3;
   margin-bottom: 2rem;
-  /* espaço abaixo antes da próxima seção */
+  
 }
 
 .instagram-highlight {
@@ -948,13 +886,7 @@
   font-weight: 700;
 }
 
-/* ══════════════════════════════════════════
-   SEÇÕES 7–8 — FOTOS PROVA SOCIAL — CARROSSEL
-   Trazido da v50: 2 fotos em slides com scroll-snap (arrasta pro lado),
-   bolinhas de posição embaixo e avanço automático pro slide 2, 5s depois
-   da primeira vez que o carrossel aparece na tela — ocupa bem menos
-   espaço vertical que as 2 fotos empilhadas em tela cheia.
-══════════════════════════════════════════ */
+
 
 .photo-carousel {
   background: #ffffff;
@@ -1006,9 +938,7 @@
   transform: scale(1.2);
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 10 — FAQ
-══════════════════════════════════════════ */
+
 
 .section-faq {
   background: #fffbf3;
@@ -1026,9 +956,9 @@
 
 .faq-heading {
   font-family: var(--fonte-corpo);
-  /* Raleway, conforme original */
+  
   font-size: calc((1.875rem) / var(--z));
-  /* 30px */
+  
   font-weight: 700;
   color: #9e542b;
   text-align: center;
@@ -1037,7 +967,7 @@
 
 .faq-card {
   width: 19.375rem;
-  /* 310px */
+  
   border-radius: 0.625rem;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -1047,7 +977,7 @@
 .faq-question {
   background: #e8bd84;
   min-height: 3.75rem;
-  /* 60px */
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1055,7 +985,7 @@
   color: #fff;
   font-family: var(--fonte-corpo);
   font-size: calc((1.1875rem) / var(--z));
-  /* 19px */
+  
   font-weight: 700;
   line-height: 1.3;
   text-align: center;
@@ -1067,14 +997,12 @@
   color: #777;
   font-family: var(--fonte-corpo);
   font-size: calc((1.0625rem) / var(--z));
-  /* 17px */
+  
   line-height: 1.4;
   text-align: center;
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 11 — GARANTIA
-══════════════════════════════════════════ */
+
 
 .section-guarantee {
   background: #ffffff;
@@ -1087,7 +1015,7 @@
 .guarantee-heading {
   font-family: var(--fonte-corpo);
   font-size: calc((1.875rem) / var(--z));
-  /* 30px */
+  
   font-weight: 300;
   color: #000;
 }
@@ -1095,28 +1023,28 @@
 .guarantee-subheading {
   font-family: var(--fonte-corpo);
   font-size: calc((1.875rem) / var(--z));
-  /* 30px */
+  
   font-weight: 700;
   color: #f2b200;
   margin-bottom: 3rem;
-  /* espaço para badge sobreposto */
+  
 }
 
 .guarantee-box {
   width: 19rem;
-  /* 304px */
+  
   background: #fbfbfb;
   border: 2px solid #b0b0b0;
   border-radius: 0.625rem;
   padding: 3.25rem 1.25rem 1.25rem;
-  /* 52px top para badge */
+  
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Ideia 12 — Glow pulsante dourado no badge de garantia */
+
 @keyframes guarantee-glow {
   0%, 100% { filter: drop-shadow(0 0 0px rgba(242,178,0,0)); }
   50%       { filter: drop-shadow(0 0 10px rgba(242,178,0,0.65)); }
@@ -1125,12 +1053,12 @@
 .guarantee-badge {
   position: absolute;
   top: -2.75rem;
-  /* -44px — sobrepõe o box */
+  
   left: 50%;
   transform: translateX(-50%);
   width: 5.625rem;
-  /* 90px */
-  /* Ideia 12 — aura dourada pulsando como sinal de confiança */
+  
+  
   animation: guarantee-glow 2.6s ease-in-out infinite;
 }
 
@@ -1142,26 +1070,24 @@
   line-height: 1.5;
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 12 — CABEÇALHO DA AUTORA
-══════════════════════════════════════════ */
+
 
 .section-author-header {
   background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* centra texto horizontalmente */
+  
   justify-content: center;
   padding: 1rem;
   min-height: 5.9375rem;
-  /* 95px */
+  
 }
 
 .author-header-label {
   font-family: var(--fonte-corpo);
   font-size: calc((1.875rem) / var(--z));
-  /* 30px */
+  
   font-weight: 300;
   color: #1f1f1f;
   line-height: 1.2;
@@ -1171,34 +1097,32 @@
 .author-header-name {
   font-family: var(--fonte-corpo);
   font-size: calc((1.875rem) / var(--z));
-  /* 30px */
+  
   font-weight: 700;
   color: #e43b2c;
   line-height: 1.2;
   text-align: center;
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 13 — BIO DA AUTORA
-══════════════════════════════════════════ */
+
 
 .section-author-bio {
   min-height: 27.8125rem;
-  /* 445px */
+  
   background-image: url('images/lara.avif');
   background-size: cover;
   background-position: 50% 100%;
   display: flex;
   align-items: flex-end;
-  /* caixa de texto no rodapé da foto */
+  
   justify-content: center;
   padding: 1.5rem 1rem;
 }
 
-/* Ideia 13 — slide-up na caixa de bio ao entrar no viewport */
+
 .author-bio-box {
   width: 19.6875rem;
-  /* 315px */
+  
   background: rgba(255, 255, 255, 0.97);
   padding: 1.25rem;
   opacity: 0;
@@ -1213,7 +1137,7 @@
 .author-bio-text {
   font-family: var(--fonte-corpo);
   font-size: calc((1rem) / var(--z));
-  /* 16px */
+  
   color: rgba(0, 0, 0, 0.7);
   font-style: italic;
   text-align: left;
@@ -1226,15 +1150,13 @@
 
 .author-bio-emphasis {
   color: #e43b2c;
-  /* vermelho — mesmo tom de "Lara Vencato" */
+  
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 14 — CTA FINAL
-══════════════════════════════════════════ */
+
 
 .section-final-cta {
-  /* Ideia 14 — gradiente quente: fundo aquecido sinaliza momento da decisão */
+  
   background: linear-gradient(to bottom, #ffffff, #fff4e0);
   display: flex;
   flex-direction: column;
@@ -1245,9 +1167,9 @@
 
 .final-cta-divider {
   width: 4.0625rem;
-  /* 65px */
+  
   height: 0.1875rem;
-  /* 3px — linha decorativa */
+  
   background-color: #e43b2c;
   margin-bottom: 1rem;
 }
@@ -1255,7 +1177,7 @@
 .final-cta-heading {
   font-family: var(--fonte-corpo);
   font-size: calc((1.3125rem) / var(--z));
-  /* 21px */
+  
   font-weight: 400;
   color: #6e2d1a;
   line-height: 1.35;
@@ -1269,9 +1191,9 @@
 
 .btn-cta-final {
   width: 18.75rem;
-  /* 300px */
+  
   height: 4.0625rem;
-  /* 65px */
+  
 }
 
 .final-cta-access {
@@ -1281,19 +1203,17 @@
   margin-top: 0.75rem;
   font-family: var(--fonte-corpo);
   font-size: calc((1.125rem) / var(--z));
-  /* 18px */
+  
   color: #333;
 }
 
 .final-cta-icon {
   width: 1.9375rem;
-  /* 31px */
+  
   height: 1.9375rem;
 }
 
-/* ══════════════════════════════════════════
-   SEÇÃO 15 — RODAPÉ
-══════════════════════════════════════════ */
+
 
 .section-footer {
   background: #090909;
@@ -1301,21 +1221,19 @@
   justify-content: center;
   align-items: center;
   min-height: 2.1875rem;
-  /* 35px */
+  
   padding: 0.375rem 1rem;
 }
 
 .footer-text {
   font-family: var(--fonte-corpo);
   font-size: calc((0.75rem) / var(--z));
-  /* 12px */
+  
   color: rgba(255, 255, 255, 0.46);
   text-align: center;
 }
 
-/* ══════════════════════════════════════════
-   PRODUCT SHOWCASE — VARIAÇÕES TEMPORÁRIAS
-══════════════════════════════════════════ */
+
 
 .product-showcase {
   background: #ffffff;
@@ -1348,7 +1266,7 @@
   border-radius: 2rem;
 }
 
-/* — V2: Número em Destaque + Setas ——————— */
+
 
 .pb2-header {
   font-family: var(--fonte-corpo);
@@ -1407,7 +1325,7 @@
   font-size: calc((0.875rem) / var(--z));
 }
 
-/* — V3: Checklist ✓ com Separadores ———————— */
+
 
 .pb3-desc {
   font-family: var(--fonte-corpo);
@@ -1455,7 +1373,7 @@
   font-size: calc((0.875rem) / var(--z));
 }
 
-/* — V4: Texto Editorial (parágrafo único) —— */
+
 
 .pb4-block {
   font-family: var(--fonte-corpo);
@@ -1486,7 +1404,7 @@
   font-size: calc((0.9375rem) / var(--z));
 }
 
-/* — V5: Linhas com Marcador Lateral ————————— */
+
 
 .pb5-desc {
   font-family: var(--fonte-corpo);
@@ -1537,7 +1455,7 @@
   font-size: calc((0.875rem) / var(--z));
 }
 
-/* — V6: Linhas Estruturadas + Ícones Originais —— */
+
 
 .pb6-desc {
   font-family: var(--fonte-corpo);
@@ -1584,7 +1502,7 @@
   font-size: calc((0.875rem) / var(--z));
 }
 
-/* ── Seções 7–8 — Janela Interativa ── */
+
 .section-photo-v2 {
   background: #ffffff;
   padding: 0 5px;
@@ -1593,7 +1511,7 @@
 
 .photos-window {
   position: relative;
-  height: 21.875rem; /* 350px */
+  height: 21.875rem; 
   border-radius: 0.875rem;
   overflow: hidden;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07);
@@ -1610,7 +1528,7 @@
   display: block;
 }
 
-/* Gradiente inferior: 1/3 da janela — efeito "surgindo do infinito" */
+
 .photos-fade {
   position: absolute;
   bottom: 0;
@@ -1622,18 +1540,16 @@
   z-index: 2;
 }
 
-/* Sem barra de rolagem */
+
 .photos-window::-webkit-scrollbar {
   display: none;
 }
 
-/* ══════════════════════════════════════════
-   FAQ SHOWCASE — REMOVER APÓS ESCOLHA
-══════════════════════════════════════════ */
 
-/* ── V1b: WhatsApp Invertido ──────────────── */
 
-/* Fundo igual ao chat do WhatsApp */
+
+
+
 .faq-s1b {
   background: #efe7de !important;
   padding: 1.5rem 0 2rem;
@@ -1662,7 +1578,7 @@
   position: relative;
 }
 
-/* ── Cliente: DIREITA, verde WhatsApp ─────── */
+
 .faq-v1b-client {
   background: #d9f7be;
   color: #111;
@@ -1673,7 +1589,7 @@
   box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
 }
 
-/* Cauda direita — triângulo fiel ao WhatsApp */
+
 .faq-v1b-client::after {
   content: '';
   position: absolute;
@@ -1683,10 +1599,10 @@
   height: 13px;
   background: #d9f7be;
   clip-path: polygon(0 0, 0 100%, 100% 0);
-  /* vértices: (0,0)=canto top-right da bolha | (0,13)=13px abaixo | (8,0)=ponta */
+  
 }
 
-/* ── Lara: ESQUERDA, branco WhatsApp ─────── */
+
 .faq-v1b-lara {
   background: #ffffff;
   color: #111;
@@ -1697,7 +1613,7 @@
   box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
 }
 
-/* Cauda esquerda — clip-path estilo WhatsApp */
+
 .faq-v1b-lara::before {
   content: '';
   position: absolute;
@@ -1707,7 +1623,7 @@
   height: 13px;
   background: #ffffff;
   clip-path: polygon(100% 0, 100% 100%, 0 0);
-  /* (8,0)=canto sup-esq do balão | (8,13)=13px abaixo | (0,0)=ponta da cauda */
+  
 }
 
 .faq-v1b-name {
@@ -1719,11 +1635,9 @@
   line-height: 1.2;
 }
 
-/* ══════════════════════════════════════════
-   DOBRAS 1–2 — ANTI-INFLAMATÓRIAS
-══════════════════════════════════════════ */
 
-/* Banner topo — promoção com atraso */
+
+
 @keyframes ai-banner-in {
   from { opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0; }
   to   { opacity: 1; max-height: 6rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
@@ -1757,7 +1671,7 @@
   line-height: 1.3;
 }
 
-/* Dobra 1 — Hero */
+
 .ai-section-hero {
   background-color: #f7f3e8;
   display: flex;
@@ -1794,7 +1708,7 @@
   font-weight: 700;
 }
 
-/* Badges strip — linha horizontal única */
+
 .ai-badges-strip {
   display: flex;
   align-items: center;
@@ -1825,7 +1739,7 @@
   flex-shrink: 0;
 }
 
-/* Hero image */
+
 .ai-hero-img {
   width: 100%;
   max-width: 19.8125rem;
@@ -1834,7 +1748,7 @@
   border-radius: 0.5rem;
 }
 
-/* Features row — ícones + labels */
+
 .ai-features-row {
   display: flex;
   justify-content: center;
@@ -1862,7 +1776,7 @@
   text-align: center;
 }
 
-/* Botão CTA (compartilhado dobras 1 e 2) */
+
 .ai-cta-btn {
   display: block;
   width: 18.125rem;
@@ -1880,7 +1794,7 @@
   box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.18);
 }
 
-/* Dobra 2 — Receitas exclusivas */
+
 .ai-section-product {
   background: #ffffff;
   display: flex;
@@ -1983,58 +1897,26 @@
   </style>
 
 <style id="v51-narrow-layout-guard">
-  /* Navegador embutido do Instagram entrega ~280px de largura (a página foi
-     desenhada para ~340px). Estas regras só entram quando a tela é menor que
-     o desenho: em 340px+ o resultado é idêntico ao original. */
+  
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  :root { --z: 1; }  /* ampliação de texto detectada (script no <head>); 1 = nenhuma */
+  :root { --z: 1; }  
 
-  /* ════════ ESCALA DO DESENHO (preencher a tela do celular) ════════
-     A página foi desenhada para ~340px de largura: em celular de 360px ou 412px
-     sobrava margem dos dois lados e tudo parecia pequeno. Como TODA medida do
-     desenho (largura de caixa, fonte, altura de botão, espaçamento) está em rem,
-     basta a base do rem crescer com a tela que o desenho inteiro acompanha, nas
-     mesmas proporções, sem esticar nada.
-       19.6875 = bloco mais largo do desenho (a caixa da autora, 315px na base 16)
-       16px    = margem de segurança, 8px de cada lado (único número a mexer se
-                 quiser mais ou menos respiro nas laterais)
-       16px    = piso: de 340px para baixo nada muda (todo o ajuste de tela
-                 estreita já feito continua valendo exatamente igual)
-       19px    = teto: 1,19x, para não ficar desproporcional em tela grande
-     Exemplos: 340px -> 16,5 (1,03x) · 360px -> 17,5 (1,09x) · 412px -> 19 (1,19x).
-     Isto é independente do --z: --z corrige o sistema ampliar SÓ o texto; aqui o
-     desenho todo cresce junto. Por isso um não cancela o outro. */
+  
   html { font-size: clamp(16px, calc((100vw - 16px) / 19.6875), 19px); }
 
-  /* Texto do botão CTA (Montserrat): uma "escada" de faixas. Vale a faixa mais
-     estreita que a tela alcança (285px cai na de 300; 275px cai na de 280).
-     Acima de 340px = normal. Para ajustar uma faixa, mexer só nos 2 valores dela. */
+  
   :root { --btn-fw: 700; --btn-fs: 1.25rem; }
   @media (max-width: 340px) { :root { --btn-fw: 700; --btn-fs: 20px; } }
   @media (max-width: 320px) { :root { --btn-fw: 700; --btn-fs: 20px; } }
   @media (max-width: 300px) { :root { --btn-fw: 700; --btn-fs: 19.4px; } }
   @media (max-width: 280px) { :root { --btn-fw: 700; --btn-fs: 17.5px; } }
 
-  /* ════════ SISTEMA DE TÍTULOS (hierarquia fixa, vale em todas as larguras) ════════
-     Só existem 3 tamanhos de título. Para mudar a hierarquia da página, mexer AQUI:
-       --t-titulo     26px  título de seção: "Bolos Sem Glúten", "Veja os comentários",
-                            "Sempre me perguntam...", "Sem Riscos",
-                            "Lara Vencato"
-       --t-abertura   20px  linha de abertura, fina, que antecede o título: "Apresento o
-                            Livro", "Experimente", "Sobre a Autora," (sempre menor que o título)
-       --t-fechamento 23px  frase final acima do último botão
-       --t-destaque 32px / --t-destaque-abertura 26px   os 3 pares (linha fina + título)
-     26px é o maior tamanho em que a linha mais larga ("Sempre me perguntam..." em uma
-     linha, em celular normal) cabe na tela. Todo tamanho passa por / var(--z): ver a
-     compensação da ampliação de texto no <head>. */
+  
   :root { --t-titulo: 1.625rem; --t-abertura: 1.25rem; --t-fechamento: 1.4375rem;
           --t-destaque: 2rem; --t-destaque-abertura: 1.625rem; }
   .instagram-heading,
   .faq-heading { font-size: calc(var(--t-titulo) / var(--z)); }
-  /* Os 3 PARES de destaque (linha fina pequena em cima + título grande embaixo):
-     "Apresento o Livro / Bolos Sem Glúten", "Experimente / Sem Riscos", "Sobre a Autora, /
-     Lara Vencato". São o nível de destaque: +6px em cada linha (20 -> 26 e 26 -> 32). Têm
-     tokens próprios para poderem ser maiores que os demais títulos de seção. */
+  
   .product-title,
   .guarantee-subheading,
   .author-header-name { font-size: calc(var(--t-destaque) / var(--z)); }
@@ -2042,23 +1924,18 @@
   .guarantee-heading,
   .author-header-label { font-size: calc(var(--t-destaque-abertura) / var(--z)); }
   h2.final-cta-heading { font-size: calc(var(--t-fechamento) / var(--z)); }
-  /* O título mais largo do desenho ("Sempre me perguntam...") só cabe em uma linha se
-     a seção não comer 1rem de cada lado: com a escala do desenho esse padding cresce
-     junto e passava a quebrar o título em duas linhas entre 340px e 393px. */
+  
   .section-faq { padding-inline: 0.5rem; }
-  /* Pergunta do FAQ: o texto branco sobre o bege (#e8bd84) tinha contraste ruim (cerca de
-     1,7:1). Marrom escuro do título "Bolos Sem Glúten" (#713a3a) dá cerca de 5:1. */
+  
   .faq-question { color: #713a3a; }
-  /* títulos de uma linha só nunca quebram */
+  
   .product-title, h2.final-cta-heading { white-space: nowrap; }
-  /* Linhas de abertura mais finas: a fonte só tem o peso regular, então um contorno branco
-     de 0.5px (sobre fundo branco) "come" a borda das letras. Maior = mais fino (0.9px fica
-     irregular). Só funciona sobre fundo branco. */
+  
   .product-title .pt-l1,
   .guarantee-heading,
   .author-header-label { -webkit-text-stroke: 0.5px #fff; paint-order: fill stroke; }
 
-  /* Larguras fixas em rem viram "no máximo isso, nunca mais que a tela - 2rem" */
+  
   .product-box-wrapper { width: min(16.5rem, calc(100vw - 2rem)); }
   .section-product .btn-cta,
   .section-final-cta .btn-cta { width: min(18.75rem, calc(100vw - 2rem)); }
@@ -2066,26 +1943,19 @@
   .section-guarantee .guarantee-box { width: min(19rem, calc(100vw - 2rem)); }
 
   @media (max-width: 340px) {
-    /* Botões CTA: largura máxima da tela (10px de margem de cada lado) e texto sempre em UMA linha */
+    
     .section-product .btn-cta,
     .section-final-cta .btn-cta { width: calc(100vw - 20px); white-space: nowrap; }
 
-    /* Botões CTA 5px mais baixos (73px -> 68px o de cima; 65px -> 60px o final) */
+    
     .section-product .btn-cta { height: calc(4.5625rem - 5px); }
     .section-final-cta .btn-cta-final { height: calc(4.0625rem - 5px); }
   }
 
-  /* Textos do FAQ: versão completa (padrão) e versão enxuta (só telas estreitas) */
+  
   .t-short { display: none; }
 
-  /* Cartão de benefícios sobre a foto (3 itens), em qualquer celular (até 479px; a partir
-     de 480px é o desenho de desktop). A largura do cartão é A MESMA do botão CTA (variável
-     --card-w: no celular o botão e o cartão têm a mesma margem lateral, 2rem no total; em
-     tela até 340px, 10px de cada lado). Cada item em UMA linha; ícone maior (1.27em) e texto 1px menor.
-     Fonte = (largura do cartão - 22px) / 15.35, onde 22px = borda (2) + paddings (15) +
-     espaço (5) e 15.35 = linha mais larga (14.2 "ems") + ícone (1.15em).
-     Ancorado pela base no mesmo ponto do desenho original (base 32px dentro da seção, sobre as fotos; era 23px acima: desceu 10 + 15 + 15px).
-     Sombra forte projetada para baixo, sobre as fotos/GIF, para dar efeito de levitação.. */
+  
   :root { --card-w: min(18.75rem, calc(100vw - 2rem)); }
   @media (max-width: 340px) { :root { --card-w: calc(100vw - 20px); } }
   @media (max-width: 479px) {
@@ -2094,33 +1964,23 @@
     .benefits-icon { width: 1.27em; height: 1.27em; }
   }
 
-  /* Seção do print do Instagram, em qualquer celular (até 479px):
-     - imagem -> título "Veja os comentários": mais respiro (o título subia sobre a imagem)
-     - subtítulo: 2px menor (17.25px na base; era 19.25px)
-     - subtítulo -> fotos dos comentários: 12px menos (era 2rem)
-     - prints dos comentários: o conteúdo da imagem já vai de borda a borda (avatar na
-       esquerda, linha mais longa a 99% da largura), então o que sobrava nas laterais era só
-       o padding do carrossel (1.75rem). Fica uma margem mínima de 6px de cada lado. */
+  
   @media (max-width: 479px) {
-    /* "criadora do [Instagram] sua.cozinhasaudavel [verificado]": ícones menores (0.85em) para o
-       verificado caber no fim da MESMA linha; antes só valia em tela estreita e a 360px o
-       verificado caía sozinho numa terceira linha. Fonte calculada pela linha mais larga. */
+    
     .section-author-intro { padding-inline: 0.5rem; }
     .author-ig-text { white-space: nowrap; text-align: center; font-size: calc((min(1rem, calc((100vw - 16px) / 18.4))) / var(--z)); }
     .author-ig-logo-inline { width: 0.85em; height: 0.85em; margin-right: 0.15em; }
     .author-ig-check { width: 0.85em; height: 0.85em; margin-left: 0.15em; }
-    /* print do perfil do Instagram: um pouco maior (era 80% com deslocamento de 15px) */
+    
     .instagram-screenshot { width: 90%; transform: translateY(-5px); }
     .instagram-heading { margin-top: -0.5rem; }
     .instagram-subtext { font-size: calc((1.078rem) / var(--z)); margin-bottom: 1.25rem; }
     .photo-carousel-slide { padding-inline: 6px; }
-    /* FAQ em qualquer celular: textos enxutos (as 3 primeiras perguntas em UMA linha, resposta 2
-       em 3 linhas) e padding lateral menor para usar a largura toda da caixa. O resto da
-       página (garantia etc.) continua com o texto completo acima de 335px. */
+    
     .section-faq .t-full { display: none; }
     .section-faq .t-short { display: inline; }
     .faq-question, .faq-answer { padding-inline: 0.5rem; }
-    /* FAQ: pergunta 18px (era 19) e resposta 16px (era 17) */
+    
     .faq-question { font-size: calc((1.125rem) / var(--z)); }
     .faq-answer { font-size: calc((1rem) / var(--z)); }
   }
@@ -2129,29 +1989,27 @@
     .t-full { display: none; }
     .t-short { display: inline; }
 
-    /* FAQ compacto: fontes e espaçamentos menores */
+    
     .faq-card { margin-bottom: 0.75rem; }
     .faq-question { min-height: 2.5rem; padding: 0.5rem; font-size: calc((0.875rem) / var(--z)); }
-    .faq-answer { padding: 0.5rem; font-size: calc((0.8125rem) / var(--z)); text-wrap: pretty; }  /* usa a largura toda; só evita palavra solta no fim */
+    .faq-answer { padding: 0.5rem; font-size: calc((0.8125rem) / var(--z)); text-wrap: pretty; }  
 
-    /* Quebras de linha forçadas pensadas para 340px viram fluxo natural
-       (a caixa da garantia só fica menor que 19rem abaixo de 336px) */
+    
     .br-wide { display: none; }
 
-    /* "Receitas assinadas por..." mantém as 2 linhas do desenho */
+    
     .section-author-intro { padding-inline: 0.5rem; }
     .author-ig-text { font-size: calc((min(1rem, 5vw)) / var(--z)); white-space: nowrap; text-align: center; }
     .author-ig-logo-inline { width: 1em; height: 1em; }
     .author-ig-check { width: 1em; height: 1em; }
 
-    /* Prints de comentários: usam a largura toda, com 5px de folga de cada lado
-       (era 1.75rem = 28px, que deixava a imagem com 224px em tela de 280px) */
+    
     .photo-carousel-slide { padding-inline: 5px; }
 
 
-    .instagram-screenshot { margin-bottom: 0.5rem; }  /* era 1rem: menos espaço até o título */
-    .instagram-heading { margin-top: 0; padding-inline: 1rem; }  /* respiro acima: não sobe mais sobre a imagem */
-    .instagram-subtext { font-size: calc((min(1.078rem, 5.4vw)) / var(--z)); margin-bottom: 0.5rem; }  /* era 2rem: menos espaço até as fotos */
+    .instagram-screenshot { margin-bottom: 0.5rem; }  
+    .instagram-heading { margin-top: 0; padding-inline: 1rem; }  
+    .instagram-subtext { font-size: calc((min(1.078rem, 5.4vw)) / var(--z)); margin-bottom: 0.5rem; }  
   }
 </style>
 
@@ -2220,104 +2078,89 @@
 
 <body>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 1 — HERO
-  ══════════════════════════════════════════ -->
+  
   <picture>
-    <source srcset="images/v58-p01.avif" type="image/avif">
+    <source srcset="images/v58-p01-480.avif 480w, images/v58-p01-720.avif 720w, images/v58-p01.avif 900w" sizes="100vw" type="image/avif">
     <source srcset="images/v58-p01.webp" type="image/webp">
     <img src="images/v58-p01.jpg" alt="Bolos para comer sem culpa. Sem Glúten, Sem Leite, Sem Açúcar" class="img-page-block" width="900" height="1721" loading="eager" fetchpriority="high" decoding="async">
   </picture>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 2 — BENEFITS CARD
-  ══════════════════════════════════════════ -->
+  
   <section class="section-benefits">
-    <!-- SEM autoplay/preload de propósito: com eles o navegador baixa os 94KB
-         na hora e rouba banda da hero exatamente na janela que define o LCP.
-         O poster (avif 8,5KB) segura o visual; um script no fim da página dá
-         play quando a rede desafoga (window.load, ou 3s no máximo). -->
-    <video class="benefits-video" muted="" loop="" playsinline="" preload="none" poster="images/cake-poster.avif" aria-hidden="true" autoplay="">
+    
+    <video class="benefits-video" muted="" loop="" playsinline="" preload="none" poster="images/cake-poster.avif" aria-hidden="true">
       <source src="media/cake-video-opt.mp4" type="video/mp4">
     </video>
     <div class="benefits-card">
       <ul class="benefits-list">
         <li class="benefits-item">
-          <img src="images/imgi_1_icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" alt="" class="benefits-icon">
+          <img decoding="async" height="24" width="24" src="images/imgi_1_icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" alt="" class="benefits-icon">
           <span>Receitas <b>Testadas e Aprovadas</b></span>
         </li>
         <li class="benefits-item">
-          <img src="images/imgi_1_icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" alt="" class="benefits-icon">
+          <img decoding="async" height="24" width="24" src="images/imgi_1_icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" alt="" class="benefits-icon">
           <span><b>Sem Leite e Sem Açúcar</b></span>
         </li>
         <li class="benefits-item">
-          <img src="images/imgi_1_icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" alt="" class="benefits-icon">
+          <img decoding="async" height="24" width="24" src="images/imgi_1_icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" alt="" class="benefits-icon">
           <span>Ingredientes <b>Acessíveis</b></span>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 4 — PRODUTO
-  ══════════════════════════════════════════ -->
+  
   <section class="section-product">
     <h2 class="product-title"><span class="pt-l1">Apresento o Livro</span><br><b>Bolos Sem Glúten</b></h2>
     <div class="product-box-wrapper">
       <picture>
-        <img src="images/mockup-282.webp" class="product-mockup" alt="Livro de receitas Bolos Sem Glúten" width="282" height="356" loading="lazy">
+        <img fetchpriority="low" decoding="async" src="images/mockup-282.webp" class="product-mockup" alt="Livro de receitas Bolos Sem Glúten" width="282" height="356" loading="lazy">
       </picture>
       <div class="product-box">
         <p class="pb6-desc">Você receberá <b>10 receitas inéditas</b> com foto real e passo a passo simples.</p>
         <ul class="pb6-list">
-          <li><img src="images/opt-imgi_24_CapturadeTela20241210as215415.webp" alt="" class="ingredient-icon" loading="lazy"><span><b>Sem Glúten</b></span></li>
-          <li><img src="images/opt-imgi_23_CapturadeTela20241210as215424.webp" alt="" class="ingredient-icon" loading="lazy"><span><b>Sem Leite</b></span></li>
-          <li><img src="images/opt-imgi_22_CapturadeTela20241210as215436.webp" alt="" class="ingredient-icon" loading="lazy"><span><b>Sem Conservantes</b></span></li>
-          <li><img src="images/opt-imgi_20_image.webp" alt="" class="ingredient-icon" loading="lazy"><span>Com ou <b>Sem Açúcar</b></span></li>
-          <li><img src="images/opt-imgi_21_CapturadeTela20241210as215458.webp" alt="" class="ingredient-icon" loading="lazy"><span>Com ou <b>Sem Ovos</b></span></li>
+          <li><img fetchpriority="low" decoding="async" height="132" width="140" src="images/opt-imgi_24_CapturadeTela20241210as215415.webp" alt="" class="ingredient-icon" loading="lazy"><span><b>Sem Glúten</b></span></li>
+          <li><img fetchpriority="low" decoding="async" height="127" width="140" src="images/opt-imgi_23_CapturadeTela20241210as215424.webp" alt="" class="ingredient-icon" loading="lazy"><span><b>Sem Leite</b></span></li>
+          <li><img fetchpriority="low" decoding="async" height="138" width="140" src="images/opt-imgi_22_CapturadeTela20241210as215436.webp" alt="" class="ingredient-icon" loading="lazy"><span><b>Sem Conservantes</b></span></li>
+          <li><img fetchpriority="low" decoding="async" height="132" width="140" src="images/opt-imgi_20_image.webp" alt="" class="ingredient-icon" loading="lazy"><span>Com ou <b>Sem Açúcar</b></span></li>
+          <li><img fetchpriority="low" decoding="async" height="130" width="140" src="images/opt-imgi_21_CapturadeTela20241210as215458.webp" alt="" class="ingredient-icon" loading="lazy"><span>Com ou <b>Sem Ovos</b></span></li>
         </ul>
       </div>
     </div>
-    <a href="checkout.html" class="btn-cta" rel="noopener noreferrer">BAIXAR MINHA CÓPIA</a>
+    <a href="https://pay.wiapy.com/Qm2PS_7qjqBs" class="btn-cta" rel="noopener noreferrer">BAIXAR MINHA CÓPIA</a>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 5 — AUTHOR INTRO
-  ══════════════════════════════════════════ -->
+  
   <div class="section-author-intro">
     <p class="author-ig-text">
       Receitas assinadas por <i>Lara Vencato,</i><br>
       criadora do
-      <img src="images/opt-imgi_26_download.webp" alt="Instagram" class="author-ig-logo-inline" loading="lazy"><strong>sua.cozinhasaudavel</strong>
-      <img src="images/opt-imgi_27_download.webp" alt="" class="author-ig-check" loading="lazy">
+      <img fetchpriority="low" decoding="async" height="96" width="96" src="images/opt-imgi_26_download.webp" alt="Instagram" class="author-ig-logo-inline" loading="lazy"><strong>sua.cozinhasaudavel</strong>
+      <img fetchpriority="low" decoding="async" height="94" width="96" src="images/opt-imgi_27_download.webp" alt="" class="author-ig-check" loading="lazy">
     </p>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 6 — INSTAGRAM
-  ══════════════════════════════════════════ -->
+  
   <section class="section-instagram">
-    <img src="images/instagram.webp" alt="Perfil Instagram @sua.cozinhasaudavel com 344 mil seguidores" class="instagram-screenshot" loading="lazy">
+    <img fetchpriority="low" decoding="async" height="578" width="452" src="images/instagram.webp" alt="Perfil Instagram @sua.cozinhasaudavel com 344 mil seguidores" class="instagram-screenshot" loading="lazy">
     <h2 class="instagram-heading">Veja os comentários<br>no post fixado</h2>
     <p class="instagram-subtext">Mais de <b class="instagram-highlight">500 comentários</b><br>de clientes
       satisfeitos.</p>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÕES 7–8 — FOTOS PROVA SOCIAL — CARROSSEL
-  ══════════════════════════════════════════ -->
+  
   <div class="photo-carousel" id="photoCarousel">
     <div class="photo-carousel-track">
       <div class="photo-carousel-slide">
         <picture>
           <source srcset="images/imgi_28_1_opt.avif" type="image/avif">
-          <img src="images/bolo1.webp" alt="" class="photo-full" loading="lazy">
+          <img fetchpriority="low" decoding="async" height="1440" width="810" src="images/bolo1.webp" alt="" class="photo-full" loading="lazy">
         </picture>
       </div>
       <div class="photo-carousel-slide">
         <picture>
           <source srcset="images/imgi_29_2_opt.avif" type="image/avif">
-          <img src="images/bolo2.webp" alt="" class="photo-full" loading="lazy">
+          <img fetchpriority="low" decoding="async" height="1440" width="810" src="images/bolo2.webp" alt="" class="photo-full" loading="lazy">
         </picture>
       </div>
     </div>
@@ -2327,10 +2170,10 @@
     </div>
   </div>
 
-  <!-- SELO "RISCO ZERO" + FAQ EM CARTÕES (trazidos da v70/v71) -->
+  
   <section class="guarantee-alt-preview" aria-label="Prévia do selo de garantia">
   <div class="guarantee-alt-preview__card guarantee-alt-preview__wide-card" aria-label="Selo de garantia risco zero em formato horizontal">
-    <div class="guarantee-alt-preview__wide-left"><img class="guarantee-alt-preview__wide-icon" src="images/ico-garantia-otimizado.png" width="184" height="192" alt="" loading="lazy" decoding="async"><p class="guarantee-alt-preview__wide-days"><strong>7</strong><span>DIAS</span></p></div>
+    <div class="guarantee-alt-preview__wide-left"><img fetchpriority="low" class="guarantee-alt-preview__wide-icon" src="images/ico-garantia-otimizado.png" width="184" height="192" alt="" loading="lazy" decoding="async"><p class="guarantee-alt-preview__wide-days"><strong>7</strong><span>DIAS</span></p></div>
     <span class="guarantee-alt-preview__wide-divider" aria-hidden="true"></span>
     <div class="guarantee-alt-preview__wide-copy"><h3 data-shine="RISCO ZERO">RISCO ZERO</h3><p><span>Se não gostar,</span><span>devolvemos 100%</span><span>do seu dinheiro.</span></p></div>
   </div>
@@ -2355,12 +2198,10 @@
 </script>
 
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 12 — CABEÇALHO DA AUTORA
-  ══════════════════════════════════════════ -->
+  
   
 <style id="faq-page-overrides-v62"></style>
-<!-- FAQ (versão com pergunta em marrom escuro) -->
+
   <section class="section-faq">
     <p class="faq-emoji">💬</p>
     <h2 class="faq-heading">Sempre me perguntam...</h2>
@@ -2392,21 +2233,17 @@
   
 
 
-        <!-- ══════════════════════════════════════════
-       SEÇÃO 12 — CABEÇALHO DA AUTORA
-  ══════════════════════════════════════════ -->
+        
   <div class="section-author-header">
     <p class="author-header-label">Sobre a Autora</p>
     <p class="author-header-name">Lara Vencato</p>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 13 — BIO DA AUTORA
-  ══════════════════════════════════════════ -->
+  
   <section class="section-author-bio section-author-bio--foto">
     <picture>
       <source srcset="images/lara-sorrindo.avif" type="image/avif">
-      <img src="images/lara-sorrindo.webp" alt="Lara Vencato sorrindo na cozinha" class="author-photo" width="640" height="640" loading="lazy" decoding="async">
+      <img fetchpriority="low" src="images/lara-sorrindo.webp" alt="Lara Vencato sorrindo na cozinha" class="author-photo" width="640" height="640" loading="lazy" decoding="async">
     </picture>
     <div class="author-bio-box">
       <p class="author-bio-text">A intolerância ao glúten me ensinou a cuidar da minha saúde. <b>Quando minha
@@ -2414,9 +2251,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 14 — CTA FINAL
-  ══════════════════════════════════════════ -->
+  
   <section class="section-final-cta">
     <div class="final-cta-divider" aria-hidden="true"></div>
     <h2 class="final-cta-heading">
@@ -2424,16 +2259,14 @@
       <b class="final-cta-red">também façam parte</b><br>
       <i>da história da sua família.</i>
     </h2>
-    <a href="checkout.html" class="btn-cta btn-cta-final" rel="noopener noreferrer">BAIXAR MINHA CÓPIA</a>
+    <a href="https://pay.wiapy.com/Qm2PS_7qjqBs" class="btn-cta btn-cta-final" rel="noopener noreferrer">BAIXAR MINHA CÓPIA</a>
     <p class="final-cta-access">
       Acesso Imediato
-      <img src="images/imgi_17_icon_ffc37150cea6ab6501e7e490950acd3e.svg" alt="" class="final-cta-icon" loading="lazy">
+      <img decoding="async" height="24" width="24" src="images/imgi_17_icon_ffc37150cea6ab6501e7e490950acd3e.svg" alt="" class="final-cta-icon" loading="lazy">
     </p>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SEÇÃO 15 — RODAPÉ
-  ══════════════════════════════════════════ -->
+  
   <footer class="section-footer">
     <p class="footer-text">
       <a href="termos-de-uso.html" style="color: inherit; text-decoration: underline;">Termos de Uso</a> • <a href="privacidade.html" style="color: inherit; text-decoration: underline;">Política de Privacidade</a><br>
@@ -2442,7 +2275,7 @@
     </p>
   </footer>
 
-  <!-- Ideia 13 — Slide-up na bio da autora -->
+  
   <script>
     (function(){
       var bio = document.querySelector('.author-bio-box');
@@ -2459,26 +2292,28 @@
 
   <script>
   (function(){
-    // Play adiado do vídeo dos bolos: o <video> está com preload="none" e sem
-    // autoplay de propósito (baixar os 94KB junto com a hero atrasava o LCP).
-    // Dá play quando a rede desafoga: window.load, ou 3s no máximo — até lá
-    // o poster (mesmo primeiro frame) segura o visual, ninguém percebe.
+    // Baixar o vídeo apenas ao aproximar sua seção da tela. Preserva o poster
+    // e não compete com a imagem LCP na primeira dobra.
     var v = document.querySelector('.benefits-video');
     if (!v) return;
-    var started = false;
-    function play(){ try { var p = v.play(); if (p && p.catch) p.catch(function(){}); } catch(e) {} }
-    function start(){
-      if (started) return; started = true;
-      // autoplay=true entrega a gestão de ciclo de vida pro navegador (ele
-      // mesmo retoma ao voltar de aba oculta); play() inicia agora.
-      v.autoplay = true;
-      play();
+    var visible = false;
+    function play(){
+      if (document.hidden || !visible) return;
+      try { var p = v.play(); if (p && p.catch) p.catch(function(){}); } catch(e) {}
     }
-    if (document.readyState === 'complete') start();
-    else { window.addEventListener('load', start); setTimeout(start, 3000); }
-    // Aba ficou oculta no meio (Chrome pausa vídeo em background) → retoma na volta.
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        visible = entries[0].isIntersecting;
+        if (visible) play(); else v.pause();
+      }, {rootMargin: '150px 0px', threshold: 0});
+      io.observe(v);
+    } else {
+      visible = true;
+      if (document.readyState === 'complete') play();
+      else window.addEventListener('load',play,{once:true});
+    }
     document.addEventListener('visibilitychange', function(){
-      if (!document.hidden && started && v.paused) play();
+      if (document.hidden) v.pause(); else play();
     });
   })();
   </script>
@@ -2574,7 +2409,7 @@
 
 
 
-<!-- Diagnóstico de largura: só aparece com ?dbg=1 na URL (não afeta o tráfego normal) -->
+
 <script>
 (function () {
   if (!/[?&]dbg=1/.test(location.search)) return;

@@ -217,7 +217,7 @@
   }
 
   window.abrirPopupReceitas = function (url) {
-    destino = url || 'checkout.html';
+    destino = url || 'https://pay.wiapy.com/Qm2PS_7qjqBs';
     montar();
     var f = document.getElementById('pr-fundo');
     // Volta preenchido se a pessoa já tinha preenchido antes
